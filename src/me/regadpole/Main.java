@@ -3,6 +3,7 @@ package me.regadpole;
 import me.regadpole.browser.Browser;
 import me.regadpole.browser.ChromeBrowser;
 import me.regadpole.browser.EdgeBrowser;
+import me.regadpole.browser.FirefoxBrowser;
 import me.regadpole.time.Wait;
 
 public class Main {
@@ -24,12 +25,13 @@ public class Main {
 
     private static void open(String[] args) {
         if(args.length != 2) {
-            throw new NegativeArraySizeException("长度错误");
+            throw new NegativeArraySizeException("Wrong arguments length!");
         }
         switch (args[0].toLowerCase()){
             case "edge":  browser = new EdgeBrowser(); break;
             case "chrome": browser = new ChromeBrowser(); break;
-            default: browser = new EdgeBrowser(); break;
+            case "firefox": browser = new FirefoxBrowser(); break;
+            default: throw new UnsupportedOperationException("Can't find browser!");
         }
         browser.getWeb(args[1]).full().play();
     }

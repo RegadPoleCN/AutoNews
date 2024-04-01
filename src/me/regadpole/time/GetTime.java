@@ -3,12 +3,25 @@ package me.regadpole.time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Get time.
+ * @author RegadPole
+ */
 public class GetTime {
     private Date now = new Date();
-    private SimpleDateFormat ft = new SimpleDateFormat ("hh:mm:ss");
+    private SimpleDateFormat ft = new SimpleDateFormat ("HH:mm:ss");
 
+    /**
+     * int[3] for [hour, minute, second]
+     */
     private int[] times = getTimes(now);
 
+    /**
+     * Allow you to get a int[3] contains time.
+     * @author RegadPole
+     * @param date the Date
+     * @return int[3] for [hour, minute, second]
+     */
     private int[] getTimes(Date date) {
         now = new Date();
         int[] ints = new int[3];
